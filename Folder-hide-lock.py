@@ -57,7 +57,7 @@ if PassTry == str(Read(line = True, x = 1)):
     clear()
     folder = str(Read(line=True,x=3))
     if Read(line=True,x=2) == "show":
-        mycmd = 'attrib +s +h '+'"folder"'
+        mycmd = 'attrib +s +h "'+'folder'+'"'
         os.system(mycmd)
         password = Read(line = True,x=1)
         F = open("Data\saves.txt", mode ="w", encoding = "ibm039")
@@ -67,7 +67,7 @@ if PassTry == str(Read(line = True, x = 1)):
         F.close()
         exit()
     if Read(line=True,x=2) == "hide":
-        mycmd = 'attrib -s -h '+'"folder"'
+        mycmd = 'attrib -s -h "'+'folder'+'"'
         os.system(mycmd)
         password = Read(line = True,x=1)
         F = open("Data\saves.txt", mode ="w", encoding = "ibm039")
