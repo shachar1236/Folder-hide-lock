@@ -1,4 +1,7 @@
 import os
+from tkinter import filedialog
+from tkinter import *
+
 
 try:
     f = open("Data/saves.txt",  mode ="r", encoding = "ibm039")
@@ -6,7 +9,7 @@ try:
 except:
     try:
         os.makedirs("Data")
-        mycmd = 'attrib +s +h "C:/Users/SHAHAR/Desktop/Custom Bomb Codes Pack/Data"'
+        mycmd = 'attrib +s +h "Data"'
         os.system(mycmd)
     except FileExistsError:
         pass
@@ -32,6 +35,8 @@ def Read(line=False, x = None, all = False, FileName = "Data/saves.txt"):
         return y
     F.close()
 
+    
+
 
 
 def clear(): return os.system('cls')
@@ -45,7 +50,10 @@ if not(z):
     print(Pass, file = F)
     print("show", file = F)
     F.close()
-    folder = input("Enter directory to hide: ")
+    folder = filedialog.askdirectory()
+    print("Directory to hide: ",end="")
+    print(folder)
+    input()
     F = open("Data\saves.txt", mode ="a", encoding = "ibm039")
     print(folder, file = F)
     f.close()
@@ -57,7 +65,7 @@ if PassTry == str(Read(line = True, x = 1)):
     clear()
     folder = str(Read(line=True,x=3))
     if Read(line=True,x=2) == "show":
-        mycmd = 'attrib +s +h "'+'folder'+'"'
+        mycmd = 'attrib +s +h "' + folder +'"'
         os.system(mycmd)
         password = Read(line = True,x=1)
         F = open("Data\saves.txt", mode ="w", encoding = "ibm039")
@@ -65,9 +73,8 @@ if PassTry == str(Read(line = True, x = 1)):
         print("hide", file = F)
         print(folder, file = F)
         F.close()
-        exit()
-    if Read(line=True,x=2) == "hide":
-        mycmd = 'attrib -s -h "'+'folder'+'"'
+    elif Read(line=True,x=2) == "hide":
+        mycmd = 'attrib -s -h "' + folder +'"'
         os.system(mycmd)
         password = Read(line = True,x=1)
         F = open("Data\saves.txt", mode ="w", encoding = "ibm039")
@@ -75,4 +82,11 @@ if PassTry == str(Read(line = True, x = 1)):
         print("show", file = F)
         print(folder, file = F)
         F.close()
-        exit()
+
+In = str(input("You want to restart?(y/n) "))
+if In == "y":
+    folder = str(Read(line=True,x=3))
+    mycmd = 'attrib -s -h "' + folder +'"'
+    os.system(mycmd)
+    os.remove("Data/saves.txt")
+    os.rmdir("Data")
