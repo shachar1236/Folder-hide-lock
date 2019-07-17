@@ -35,11 +35,12 @@ def Read(line=False, x = None, all = False, FileName = "Data/saves.txt"):
         return y
     F.close()
 
+
     
 
 
+def clear():   return os.system('cls')
 
-def clear(): return os.system('cls')
 
 
 
