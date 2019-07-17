@@ -82,11 +82,10 @@ if PassTry == str(Read(line = True, x = 1)):
         print("show", file = F)
         print(folder, file = F)
         F.close()
-
-In = str(input("You want to restart?(y/n) "))
-if In == "y":
-    folder = str(Read(line=True,x=3))
-    mycmd = 'attrib -s -h "' + folder +'"'
-    os.system(mycmd)
-    os.remove("Data/saves.txt")
-    os.rmdir("Data")
+    In = str(input("You want to restart?(y/n) "))
+    if In == "y":
+        folder = str(Read(line=True,x=3))
+        mycmd = 'attrib -s -h "' + folder +'"'
+        os.system(mycmd)
+        os.remove("Data/saves.txt")
+        os.rmdir("Data")
